@@ -1,0 +1,99 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000000;
+    color: #fff :
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+}
+
+h1 {
+    color: #000000; /* Tomat */
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+h2 {
+    color: #000000; /* SteelBlue */
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.intro-section {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.intro-section p {
+    margin: 8px 0;
+}
+
+.whatsapp-link-text {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #25d366; /* WhatsApp Green */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128c7e;
+}
+
+.services-section {
+    margin-top: 40px;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.service-btn {
+    display: inline-block;
+    background-color: #4682b4; /* SteelBlue */
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.service-btn:hover {
+    background-color: #35678c;
+}
+
+.footer-text {
+    margin-top: 40px;
+    font-style: italic;
+    color: #777;
+}

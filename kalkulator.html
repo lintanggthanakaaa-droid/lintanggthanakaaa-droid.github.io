@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: #2c3e50;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+
+        .display {
+            background-color: #34495e;
+            color: white;
+            font-size: 2.5em;
+            text-align: right;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .btn.operator {
+            background-color: #e67e22;
+        }
+
+        .btn.operator:hover {
+            background-color: #d35400;
+        }
+
+        .btn.clear {
+            background-color: #e74c3c;
+        }
+
+        .btn.clear:hover {
+            background-color: #c0392b;
+        }
+
+        .btn.equals {
+            background-color: #27ae60;
+            grid-column: span 2;
+        }
+
+        .btn.equals:hover {
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button class="btn clear" onclick="clearDisplay()">C</button>
+            <button class="btn operator" onclick="appendToDisplay('/')">/</button>
+            <button class="btn operator" onclick="appendToDisplay('*')">*</button>
+            <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+            <button class="btn" onclick="appendToDisplay('7')">7</button>
+            <button class="btn" onclick="appendToDisplay('8')">8</button>
+            <button class="btn" onclick="appendToDisplay('9')">9</button>
+            <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+            <button class="btn" onclick="appendToDisplay('4')">4</button>
+            <button class="btn" onclick="appendToDisplay('5')">5</button>
+            <button class="btn" onclick="appendToDisplay('6')">6</button>
+            <button class="btn" onclick="appendToDisplay('1')">1</button>
+            <button class="btn" onclick="appendToDisplay('2')">2</button>
+            <button class="btn" onclick="appendToDisplay('3')">3</button>
+            <button class="btn" onclick="appendToDisplay('0')">0</button>
+            <button class="btn" onclick="appendToDisplay('.')">.</button>
+            <button class="btn equals" onclick="calculateResult()">=</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display');
+        let currentInput = '0';
+        let operator = null;
+        let prevInput = null;
+
+        function updateDisplay() {
+            display.textContent = currentInput;
+        }
+
+        function appendToDisplay(value) {
+            if (currentInput === '0' && value !== '.') {
+                currentInput = value;
+            } else {
+                currentInput += value;
+            }
+            updateDisplay();
+        }
+function clearDisplay() {
+            currentInput = '0';
+            operator = null;
+            prevInput = null;
+            updateDisplay();
+        }
+
+        function calculateResult() {
+            try {
+                // Menggunakan eval() untuk mengevaluasi ekspresi matematika.
+                // Catatan: Gunakan ini hanya untuk kasus sederhana, karena eval() bisa berisiko.
+                currentInput = eval(currentInput).toString();
+                if (currentInput === 'Infinity' || currentInput === 'NaN') {
+                    currentInput = 'Error';
+                }
+            } catch (error) {
+                currentInput = 'Error';
+            }
+            updateDisplay();
+        }
+    </script>
+
+</body>
+</html>
